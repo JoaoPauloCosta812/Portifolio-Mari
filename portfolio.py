@@ -1,6 +1,4 @@
 import streamlit as st
-from PIL import Image
-import os
 
 # ---------------- CONFIGURAÇÃO ----------------
 st.set_page_config(
@@ -8,23 +6,6 @@ st.set_page_config(
     page_icon="💼",
     layout="wide"
 )
-
-# ---------------- CARREGAR IMAGEM (com fallback) ----------------
-img_path = "https://github.com/JoaoPauloCosta812/Portifolio-Mari/blob/main/foto_perfil.png"
-imagem = None
-if os.path.exists(img_path):
-    try:
-        imagem = Image.open(img_path)
-    except Exception as e:
-        imagem = None
-        # opcional: você pode logar o erro se quiser
-else:
-    imagem = None
-
-# Se a imagem não foi encontrada, cria um placeholder simples (opcional)
-if imagem is None:
-    # cria uma imagem em branco 260x260 (pode ajustar)
-    imagem = Image.new("RGB", (260, 260), color=(240, 240, 240))
 
 # ---------------- CSS PERSONALIZADO ----------------
 st.markdown("""
@@ -160,7 +141,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------- CABEÇALHO (duas colunas) ----------------
-col1, col2 = st.columns([3, 1])  # criar as colunas após set_page_config e CSS
+col1, col2 = st.columns([3, 1])
 
 with col1:
     st.markdown("""
@@ -182,8 +163,11 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    # Ajuste width para combinar com CSS (260px) — Streamlit ajusta proporcionalmente
-    st.image(imagem, width=260, caption="") 
+    st.markdown("""
+        <div>
+            <img src="https://raw.githubusercontent.com/JoaoPauloCosta812/Portifolio-Mari/main/foto_perfil.png" class="profile">
+        </div>
+    """, unsafe_allow_html=True)
 
 # ---------------- SEÇÃO FORMAÇÃO ----------------
 st.markdown("""
@@ -241,4 +225,6 @@ st.markdown("""
 © 2025 Mariele Coelho — Portfólio Contábil
 </div>
 """, unsafe_allow_html=True)
+
+
 
