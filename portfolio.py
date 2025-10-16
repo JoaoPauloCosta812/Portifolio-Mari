@@ -200,7 +200,7 @@ st.markdown("""
 
 <div class='section'>
 <h2>Experiências</h2>
-<p><strong>Acessora</strong> — Administração Regional do Itapoã-DF (2024 - Atual)</p>
+<p><strong>Acessora</strong> — Administração Regional do Itapoã-DF (2023 - Atual)</p>
 <ul>
     <li>Elaboração e encaminhamento de documentos oficiais, como ofícios e despachos</li>
     <li>Organização de documentos e apoio na apuração de impostos</li>
@@ -222,3 +222,4 @@ Simulação de tomada de decisão baseada em custos fixos e variáveis em um amb
 © 2025 Mariele Coelho — Portfólio Contábil
 </div>
 """, unsafe_allow_html=True)
+
