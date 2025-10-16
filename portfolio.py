@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # ---------------- CARREGAR IMAGEM (com fallback) ----------------
-img_path = r"C:\Users\paulo\OneDrive\Área de Trabalho\Portifolio M\foto_perfil.png"
+img_path = "https://github.com/JoaoPauloCosta812/Portifolio-Mari/blob/main/foto_perfil.png"
 imagem = None
 if os.path.exists(img_path):
     try:
@@ -241,3 +241,4 @@ st.markdown("""
 © 2025 Mariele Coelho — Portfólio Contábil
 </div>
 """, unsafe_allow_html=True)
+
