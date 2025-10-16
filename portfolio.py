@@ -145,6 +145,13 @@ col1, col2 = st.columns([3, 1])
 
 with col1:
     st.markdown("""
+        <div>
+            <img src="https://raw.githubusercontent.com/JoaoPauloCosta812/Portifolio-Mari/main/foto_perfil.png" class="profile">
+        </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
         <div class="header-container">
             <div class="header-text">
                 <h1 class="name">Mariele Coelho</h1>
@@ -161,14 +168,6 @@ with col1:
             </div>
         </div>
     """, unsafe_allow_html=True)
-
-with col2:
-    st.markdown("""
-        <div>
-            <img src="https://raw.githubusercontent.com/JoaoPauloCosta812/Portifolio-Mari/main/foto_perfil.png" class="profile">
-        </div>
-    """, unsafe_allow_html=True)
-
 # ---------------- SEÇÃO FORMAÇÃO ----------------
 st.markdown("""
 <div class='section'>
@@ -225,6 +224,7 @@ st.markdown("""
 © 2025 Mariele Coelho — Portfólio Contábil
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
