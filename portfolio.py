@@ -20,22 +20,33 @@ st.markdown("""
             color: #1a2a44;
         }
 
-        /* Cabeçalho em duas colunas */
+        /* ----- CABEÇALHO PRINCIPAL ----- */
         .header-container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 3rem;
             max-width: 1100px;
-            margin: 3rem auto 3rem auto;
+            margin: 3rem auto;
             background: white;
             padding: 2.5rem 3rem;
             border-radius: 16px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            flex-wrap: wrap; /* para adaptar bem no celular */
+        }
+
+        .profile {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1a2a44;
+            box-shadow: 0 0 25px rgba(26,42,68,0.15);
         }
 
         .header-text {
             flex: 1;
-            padding-right: 2rem;
+            min-width: 280px;
         }
 
         .name {
@@ -69,16 +80,22 @@ st.markdown("""
             color: #b08968;
         }
 
-        .profile {
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #1a2a44;
-            box-shadow: 0 0 25px rgba(26,42,68,0.15);
+        .button {
+            display: inline-block;
+            background-color: #1a2a44;
+            color: white;
+            padding: 0.6em 1.4em;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 600;
         }
 
-        /* Seções */
+        .button:hover {
+            background-color: #2e4775;
+        }
+
+        /* ----- SEÇÕES ----- */
         .section {
             background-color: #ffffff;
             padding: 2rem;
@@ -101,21 +118,7 @@ st.markdown("""
             line-height: 1.6;
         }
 
-        .button {
-            display: inline-block;
-            background-color: #1a2a44;
-            color: white;
-            padding: 0.6em 1.4em;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s;
-            font-weight: 600;
-        }
-
-        .button:hover {
-            background-color: #2e4775;
-        }
-
+        /* ----- RODAPÉ ----- */
         .footer {
             text-align: center;
             color: #777;
@@ -124,51 +127,58 @@ st.markdown("""
             font-size: 14px;
         }
 
-        /* Ajuste responsivo */
+        /* ----- RESPONSIVIDADE ----- */
         @media (max-width: 900px) {
             .header-container {
-                flex-direction: column-reverse;
+                flex-direction: column;
                 text-align: center;
+                padding: 2rem;
             }
-            .header-text {
-                padding-right: 0;
-            }
+
             .profile {
                 margin-bottom: 1.5rem;
+                width: 200px;
+                height: 200px;
+            }
+
+            .name {
+                font-size: 42px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            .intro {
+                font-size: 16px;
             }
         }
     </style>
 """, unsafe_allow_html=True)
 
-# ---------------- CABEÇALHO (duas colunas) ----------------
-col1, col2 = st.columns([3, 1])
-
-with col1:
-    st.markdown("""
+# ---------------- CABEÇALHO ----------------
+st.markdown("""
+    <div class="header-container">
         <div>
             <img src="https://raw.githubusercontent.com/JoaoPauloCosta812/Portifolio-Mari/main/foto_perfil.png" class="profile">
         </div>
-    """, unsafe_allow_html=True)
-
-with col2:
-    st.markdown("""
-        <div class="header-container">
-            <div class="header-text">
-                <h1 class="name">Mariele Coelho</h1>
-                <h3 class="subtitle">Estudante de Ciências Contábeis</h3>
-                <p class="intro">
-                    Estudante dedicada e apaixonada por finanças e contabilidade.  
-                    Busco aplicar meus conhecimentos para promover uma gestão eficiente, ética e estratégica.
-                </p>
-                <div class="social-links">
-                    <a href='mailto:marielebcoelho@gmail.com' title='E-mail'>📧</a>
-                    <a href='https://www.linkedin.com/in/marielebcoelho' target='_blank' title='LinkedIn'>💼</a>
-                    <a href='https://drive.google.com/file/d/1uGQLIVyZnDlQImnqzUtW0x-xmpQYyKsz/view' target='_blank' class='button'>📄 Ver Currículo</a>
-                </div>
+        <div class="header-text">
+            <h1 class="name">Mariele Coelho</h1>
+            <h3 class="subtitle">Estudante de Ciências Contábeis</h3>
+            <p class="intro">
+                Estudante dedicada e apaixonada por finanças e contabilidade.  
+                Busco aplicar meus conhecimentos para promover uma gestão eficiente, ética e estratégica.
+            </p>
+            <div class="social-links">
+                <a href='mailto:marielebcoelho@gmail.com' title='E-mail'>📧</a>
+                <a href='https://www.linkedin.com/in/marielebcoelho' target='_blank' title='LinkedIn'>💼</a>
+                <a href='https://drive.google.com/file/d/1uGQLIVyZnDlQImnqzUtW0x-xmpQYyKsz/view' target='_blank' class='button'>📄 Ver Currículo</a>
             </div>
         </div>
-    """, unsafe_allow_html=True)
-# ---------------- SEÇÃO FORMAÇÃO ----------------
+    </div>
+""", unsafe_allow_html=True)
+
+# ---------------- SEÇÕES ----------------
 st.markdown("""
 <div class='section'>
 <h2>Formação Acadêmica</h2>
@@ -176,10 +186,7 @@ st.markdown("""
     <li><strong>Ciências Contábeis</strong> — Universidade UNOPAR, 2022 - Atual</li>
 </ul>
 </div>
-""", unsafe_allow_html=True)
 
-# ---------------- SEÇÃO HABILIDADES ----------------
-st.markdown("""
 <div class='section'>
 <h2>Habilidades</h2>
 <ul>
@@ -190,10 +197,7 @@ st.markdown("""
     <li>Ética profissional e trabalho em equipe</li>
 </ul>
 </div>
-""", unsafe_allow_html=True)
 
-# ---------------- SEÇÃO EXPERIÊNCIAS ----------------
-st.markdown("""
 <div class='section'>
 <h2>Experiências</h2>
 <p><strong>Acessora</strong> — Administração Regional do Itapoã-DF (2024 - Atual)</p>
@@ -204,10 +208,7 @@ st.markdown("""
     <li>Produção de conteúdo institucional e apoio em eventos públicos</li>
 </ul>
 </div>
-""", unsafe_allow_html=True)
 
-# ---------------- SEÇÃO PROJETOS ----------------
-st.markdown("""
 <div class='section'>
 <h2>Projetos Acadêmicos</h2>
 <p><strong>1. Planejamento Tributário de Pequenas Empresas</strong><br>
@@ -216,15 +217,8 @@ Estudo desenvolvido na disciplina de Contabilidade Tributária, com foco em estr
 <p><strong>2. Análise de Custos e Precificação</strong><br>
 Simulação de tomada de decisão baseada em custos fixos e variáveis em um ambiente empresarial fictício.</p>
 </div>
-""", unsafe_allow_html=True)
 
-# ---------------- RODAPÉ ----------------
-st.markdown("""
 <div class='footer'>
 © 2025 Mariele Coelho — Portfólio Contábil
 </div>
 """, unsafe_allow_html=True)
-
-
-
-
